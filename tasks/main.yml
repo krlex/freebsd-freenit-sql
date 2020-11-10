@@ -1,7 +1,3 @@
 ---
-- name: install sql packages
-  with_items: "{{ sql_packages }}"
-  pkgng:
-    name: "{{ item.name }}"
-  notify:
-    - restart uwsgi
+- name: include specific os
+  include_taks: "{{ ansible_distribution }}.yml"
